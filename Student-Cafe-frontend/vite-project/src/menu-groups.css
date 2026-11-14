@@ -1,0 +1,88 @@
+.menu-type-row {
+  display: flex;
+  justify-content: center;
+  gap: clamp(28px, 8vw, 100px);
+  padding: 30px 0 8px;
+}
+
+.menu-type-button {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  border: 0;
+  background: transparent;
+  color: #69685f;
+  font: 700 13px 'DM Sans', sans-serif;
+  cursor: pointer;
+  transition: color .2s, transform .2s;
+}
+
+.menu-type-button:hover { transform: translateY(-3px); color: var(--orange); }
+
+.menu-type-image {
+  width: 116px;
+  height: 116px;
+  padding: 5px;
+  border-radius: 50%;
+  background: #fffdf8;
+  border: 2px solid #e8e1d4;
+  box-shadow: 0 5px 16px #3b2a1a12;
+  transition: border-color .2s, box-shadow .2s;
+}
+
+.menu-type-image img { display: block; width: 100%; height: 100%; border-radius: 50%; object-fit: cover; }
+.category-circle { aspect-ratio: 1; border-radius: 50% !important; overflow: hidden; clip-path: circle(50%); }
+.category-circle img { width: 100%; height: 100%; display: block; border-radius: 50% !important; clip-path: circle(50%); object-fit: cover; }
+.category-circle-contain img { width: 72%; height: 72%; border-radius: 0 !important; clip-path: none; object-fit: contain; background: transparent; }
+.menu-type-button.active { color: var(--orange); }
+.menu-type-button.active .menu-type-image { border-color: var(--orange); box-shadow: 0 6px 20px #f26b3a35; }
+
+.empty-menu-state {
+  padding: 42px 20px;
+  border: 1px dashed #d8cbb8;
+  border-radius: 12px;
+  background: #fffdf8;
+  text-align: center;
+}
+
+.empty-menu-state h3 { margin: 0 0 8px; font-size: 18px; }
+.empty-menu-state p { margin: 0; color: var(--muted); font-size: 13px; }
+
+.deal-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 22px;
+}
+
+.deal-card {
+  overflow: hidden;
+  border: 1px solid #ebe5d9;
+  border-radius: 12px;
+  background: #fffdf8;
+  box-shadow: 0 5px 18px #3d34200c;
+}
+
+.deal-image-stage { position: relative; height: 250px; overflow: hidden; background: #e9e4d9; }
+.deal-cover-image { display: block; width: 100%; height: 100%; object-fit: cover; }
+.deal-drink-image { position: absolute; right: 12px; bottom: 10px; display: flex; flex-direction: column; align-items: center; justify-content: end; width: 78px; height: 145px; padding: 5px 5px 6px; border: 1px solid #ffffffc9; border-radius: 12px; background: #fffdf1ed; box-shadow: 0 5px 18px #20180f45; }
+.deal-drink-image img { display: block; max-width: 100%; flex: 1; min-height: 0; object-fit: contain; }
+.deal-drink-image span { width: 100%; padding-top: 4px; color: #164c90; font-size: 9px; font-weight: 800; text-align: center; }
+.deal-drink-image.medium { height: 168px; width: 83px; }
+.deal-drink-image.large { height: 198px; width: 90px; right: 14px; bottom: 10px; }
+.deal-card-body { padding: 14px 15px 16px; }
+.deal-title-row { display: flex; align-items: baseline; justify-content: space-between; gap: 10px; }
+.deal-title-row h3 { margin: 0; font-size: 17px; }
+.deal-title-row b { flex: none; color: var(--orange); font-size: 13px; }
+.deal-card ul { min-height: 118px; margin: 12px 0 15px; padding-left: 18px; color: #716e65; font-size: 12px; line-height: 1.7; }
+.deal-card .add-cart-button { width: 100%; }
+
+@media (max-width: 800px) { .deal-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 13px; } }
+
+@media (max-width: 480px) {
+  .menu-type-row { padding-top: 24px; }
+  .menu-type-image { width: 94px; height: 94px; }
+  .menu-type-button { font-size: 12px; }
+  .deal-grid { grid-template-columns: 1fr; }
+  .deal-image-stage { height: 230px; }
+}
