@@ -1,0 +1,28 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "services": {
+    "student-cafe": {
+      "root": "Student-Cafe",
+      "framework": "express",
+      "entrypoint": "app.js"
+    },
+    "vite-project": {
+      "root": "Student-Cafe-frontend/vite-project",
+      "framework": "vite"
+    }
+  },
+  "rewrites": [
+    {
+      "source": "/api/(.*)",
+      "destination": {
+        "service": "student-cafe"
+      }
+    },
+    {
+      "source": "/(.*)",
+      "destination": {
+        "service": "vite-project"
+      }
+    }
+  ]
+}

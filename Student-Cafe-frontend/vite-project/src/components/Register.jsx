@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import axios from 'axios'
 import { useNavigate } from 'react-router-dom'
+import { API_BASE_URL } from '../api'
 
 const Register = ({ onAuthenticated }) => {
   const [form, setForm] = useState({ name: '', email: '', password: '' })
@@ -14,7 +15,7 @@ const Register = ({ onAuthenticated }) => {
   const handleSubmit = async (e) => {
     e.preventDefault()
     try {
-      const res = await axios.post('http://localhost:8000/users/register', form)
+      const res = await axios.post(`${API_BASE_URL}/users/register`, form)
       if (!res.data.token) throw new Error('Registration succeeded but sign-in could not be completed. Please log in.')
       localStorage.setItem('token', res.data.token)
       onAuthenticated?.()
